@@ -1,11 +1,32 @@
 page-statue {
-  button.bookmark{
+  ion-buttons button {
+    background: transparent;
+  }
+  ion-icon {
+    color: white;
+  }
+  ion-content {
+    text-align: center;
+    ion-col {
+      font-weight: normal;
+    }
+    ion-col.section_text {
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+  ion-footer {
+    button {
+      background-color: white;
+    }
+  }
+  button.bookmark {
     right: 100%;
   }
 
-  #bottom-toolbar {		
- 	  .toolbar-background {		
- 	  	background: white;		
- 	  }		
-   }
+  #bottom-toolbar {
+    .toolbar-background {
+      background: white;
+    }
+  }
 }

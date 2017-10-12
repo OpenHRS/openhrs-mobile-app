@@ -1,16 +1,45 @@
 page-statue {
-  button.bookmark{
+  ion-buttons button {
+    background: transparent;
+  }
+  ion-icon {
+    color: white;
+  }
+  ion-content {
+    ion-col {
+      text-align: center;
+      font-weight: normal;
+    }
+    ion-col.section_text {
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    ion-item {
+      color: none;
+    }
+    ion-list {
+      p {
+        text-align: center;
+      }
+    }
+  }
+  ion-footer {
+    button {
+      background-color: white;
+    }
+  }
+  button.bookmark {
     right: 100%;
   }
 
-  #bottom-toolbar {		
- 	  .toolbar-background {		
- 	  	background: white;		
- 	  }		
-   }
-
-   .text-overflow-center {
-	display: flex; 
-	justify-content: center;
-   }
+  #bottom-toolbar {
+    .toolbar-background {
+      background: white;
+    }
+  }
+  
+  .text-overflow-center {
+    display: flex;
+    justify-content: center;
+  }
 }
