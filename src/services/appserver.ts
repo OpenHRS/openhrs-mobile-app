@@ -11,7 +11,7 @@ import 'rxjs/add/operator/catch';
 export class AppServer {
 
   //private BASE_URL="http://192.168.8.107:9100/optdin/api/";
-  private BASE_URL = "https://hrs.diblii.com/api/";
+  private BASE_URL = "http://dev.hrs.diblii.com/api/";
   //https://hrs.diblii.com/api/chapter/1/section/
 
   // Resolve HTTP using the constructor

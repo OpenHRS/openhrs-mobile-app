@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 
 @Injectable()
 export class locationService {
-  private BASE_URL = "https://hrs.diblii.com/api/location";
+  private BASE_URL = "http://dev.hrs.diblii.com/api/location";
 
   constructor(public http: Http) { }
 
