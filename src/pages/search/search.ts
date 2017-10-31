@@ -39,7 +39,7 @@ export class SearchPage {
     infiniteScroll.complete();
   }
 
-  openSection(sec, id) {
+  openSection(sec, id, idx) {
     var self = this;
     (self.server).getStatute(id)
       .map(response => response.json()).subscribe(result => {
@@ -47,7 +47,8 @@ export class SearchPage {
 
       setTimeout(function () {
         this.section = self.section[0];
-        self.navCtrl.push(StatuePage, {section: this.section});
+
+        self.navCtrl.push(StatuePage, {section: this.section, sectionsList: sec, sectionIndex: idx, isFromSearch: 1});
       }, 200);
     });
   }
