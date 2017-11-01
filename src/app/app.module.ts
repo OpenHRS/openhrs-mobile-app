@@ -13,7 +13,6 @@ import { ChapterPage } from '../pages/chapter/chapter';
 import { SectionPage } from '../pages/section/section';
 import { StatuePage } from '../pages/statue/statue';
 import { LinkStatuePage } from '../pages/link-statue/link-statue';
-import { ListPage } from '../pages/list/list';
 import { LocationPage } from '../pages/location/location';
 
 import { AppServer } from '../services/appserver';
@@ -30,7 +29,6 @@ import { HttpModule } from '@angular/http';
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     BookmarksPage,
     HelpPage,
     SettingsPage,

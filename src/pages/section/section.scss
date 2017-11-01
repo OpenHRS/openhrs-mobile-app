@@ -1,8 +1,25 @@
 page-section {
-
-}
-
-.section_text {
-  text-overflow: ellipsis;
-  overflow: hidden;
+    button {
+        background: transparent;
+    }
+    ion-icon {
+        color: white;
+    }
+    ion-content {
+        ion-col {
+            font-weight: normal;
+        }
+        ion-col.section_text {
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        ion-item {
+            color: none;
+        }
+        ion-list {
+            p {
+                text-align: center;
+            }
+        }
+    }
 }

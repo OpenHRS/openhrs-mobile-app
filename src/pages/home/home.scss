@@ -1,46 +1,51 @@
 page-home {
   background-image: url('../assets/img/foilage_green2.jpg');
   background-size: 100%;
-
-
-  .searchbar-md {
-
-  }
-
-
-  .toolbar-title {
-    color: #fff;
-    text-align: center;
-    font-size: 100px;
-    font-weight: 300;
-
-    .subtitle {
-      font-size: 17%;
-      font-weight: 400;
-      margin: 0;
+  ion-grid {
+    height: auto;
+    max-height: 44%;
+    ion-title .toolbar-title {
+      color: #fff;
+      text-align: center;
+      font-size: 15vh;
+      font-weight: 300;
+      .subtitle {
+        font-size: 17%;
+        font-weight: 400;
+        margin: 0;
+      }
+    }
+    ion-icon {
+      color: white;
+    }
+    #home-option {
+      background-color: transparent;
     }
   }
-
-  #home-search {
-    padding-left: .5%;
-
-    .item-md{
-      padding-left: 0px;
-    }
-
-    .item-ios{
-      padding-left: 0px;
-    }
-       .item-inner {
-      padding-right: 0;
+  ion-grid.features {
+    position: absolute;
+    bottom: 9vh;
+    right: 2%;
+    width: 100%;
+    p {
+      color: white;
+      margin: 0px;
     }
   }
-
-  #home-option {
-    .item-inner {
-      padding-right: 0;
+  #search {
+    margin-left: 5%;
+    margin-right: 5%;
+    #home-search {
+      background-color: transparent;
+      border-bottom-color: white;
+      color: white;
+      ion-label {
+        color: white;
+      }
+      ion-icon {
+        margin-bottom: -5%;
+        float: right;
+      }
     }
   }
-
-
 }

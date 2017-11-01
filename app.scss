@@ -28,10 +28,11 @@
   color: white;
 }
 
-ion-icon[name*="ios-bookmark"] {
-  color:#454545;
-}
 
+h5 {
+	text-align: center; 
+	font-weight: normal;
+}
 
 // side menu
 #menu-list {
@@ -42,6 +43,12 @@ ion-icon[name*="ios-bookmark"] {
   }
 }
 
+#bottom-toolbar {		
+ 	  .toolbar-background {		
+ 	  	background: white;		
+ 	  }		
+   }   
+
 //active-highlight on menu items
 .activeHighlight {
   background-color: rgba(34, 34, 34, 0.4) !important;
@@ -50,3 +57,16 @@ ion-icon[name*="ios-bookmark"] {
 .link-statue{
   color: #0000ff;
 }
+
+
+
+div.spacer {
+	height:30px;
+}
+
+button.menubutton{  //Temp entry for ion-buttons in division, section, statue, and chapter.
+	background: transparent;
+}
+
+
+
