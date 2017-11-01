@@ -13,11 +13,11 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content padding>
   <ion-row>
     <ion-col>
       <b> &#167;{{section.chapter}}-{{section.section}}&nbsp;{{section.section_text}} </b>
-    </ion-col>
+    </ion-col>  
   </ion-row>
   <div id="statue-markdown" class="show-list-numbers-and-dots">
     <p *ngFor="let txt of section.allTexts" [innerHTML]="sanitize(txt)">
