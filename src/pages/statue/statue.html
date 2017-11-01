@@ -37,7 +37,7 @@
         <ion-col col-10>
           <ion-title>
             <ion-icon name="ios-bookmark-outline" *ngIf="!section.bookmarked" (tap)="addToBookmark()"></ion-icon>
-            <ion-icon name="ios-bookmark" style="color:#454545;" *ngIf="section.bookmarked" (tap)="removeFromBookmark()"></ion-icon>
+            <ion-icon name="ios-bookmark" *ngIf="section.bookmarked" (tap)="removeFromBookmark()"></ion-icon>
           </ion-title>
         </ion-col>
         <ion-col col-1>
