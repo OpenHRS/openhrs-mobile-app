@@ -4,7 +4,7 @@
       {{section.title_text}}
     </ion-title>
     <ion-buttons end>
-      <button style="float: left" icon-only ion-button (click)="shareStatue()">
+      <button icon-only ion-button (click)="shareStatue()" style="float: left;">
         <ion-icon name="share-alt"></ion-icon>
       </button>
       <button icon-only ion-button menuToggle>
@@ -30,7 +30,7 @@
     <ion-grid>
       <ion-row>
         <ion-col col-1>
-          <button style="float: left;" icon-only (tap)="movePrev()">
+          <button icon-only (tap)="movePrev()">
             <ion-icon name="ios-arrow-back"></ion-icon>
           </button>
         </ion-col>
@@ -41,7 +41,7 @@
           </ion-title>
         </ion-col>
         <ion-col col-1>
-          <button style="float: right;" icon-only (tap)="moveNext()">
+          <button icon-only (tap)="moveNext()">
             <ion-icon name="ios-arrow-forward"></ion-icon>
           </button>
         </ion-col>
