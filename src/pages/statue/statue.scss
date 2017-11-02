@@ -34,13 +34,17 @@ page-statue {
   button.bookmark {
     right: 100%;
   }
-
+  ion-icon[name*="ios-arrow-back"] {
+    float: left;
+  }
+  ion-icon[name*="ios-arrow-forward"] {
+    float: right;
+  }
   #bottom-toolbar {
     .toolbar-background {
       background: white;
     }
   }
-  
   .text-overflow-center {
     display: flex;
     justify-content: center;
