@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {AppServer} from '../../services/appserver';
 import {DomSanitizer} from '@angular/platform-browser';
-import {WebIntent} from '@ionic-native/web-intent';
 
 
 @Component({
@@ -13,7 +12,7 @@ export class LinkStatuePage {
 
   private section: any = null;
 
-  constructor(private wIntent: WebIntent, private sanitizer: DomSanitizer, public navCtrl: NavController, public navParams: NavParams, public server: AppServer) {
+  constructor(private sanitizer: DomSanitizer, public navCtrl: NavController, public navParams: NavParams, public server: AppServer) {
     this.section = this.navParams.get('section');
     this.section.allTexts = [];
     this.createHyperlinksOfSection();
@@ -45,7 +44,6 @@ export class LinkStatuePage {
   }
 
   createHyperlinksOfSection() {
-    let self = this;
     let regEx = /§\d+-\d+(\.\d+)*/;
     this.section.allTexts = [];
     for (var a = 0; a < this.section.text.length; a++) {

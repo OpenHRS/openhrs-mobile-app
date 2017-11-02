@@ -18,6 +18,7 @@ export class SearchPage {
   private jsonResLength: number;
 
   constructor(public navCtrl: NavController, private navParams: NavParams, private server: AppServer) {
+    this.navParams = null;
     this.query = navParams.get("query");
     this.loadSections();
   }

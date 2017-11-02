@@ -3,7 +3,6 @@ import {NavController, NavParams} from 'ionic-angular';
 import {AppServer} from '../../services/appserver';
 import {DomSanitizer} from '@angular/platform-browser';
 import {LinkStatuePage} from '../link-statue/link-statue';
-import {WebIntent} from '@ionic-native/web-intent';
 
 
 @Component({
@@ -19,7 +18,7 @@ export class StatuePage {
   private isFromSearch: boolean = false;
 
 
-  constructor(private wIntent: WebIntent, private sanitizer: DomSanitizer, public navCtrl: NavController, public navParams: NavParams, public server: AppServer) {
+  constructor(private sanitizer: DomSanitizer, public navCtrl: NavController, public navParams: NavParams, public server: AppServer) {
     this.section = this.navParams.get('section');
     this.section.allTexts = [];
     if (this.navParams.get('sectionsList')) {
