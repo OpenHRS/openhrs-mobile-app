@@ -10,8 +10,6 @@
   </ion-buttons>
   </ion-navbar>
 </ion-header>
-
-
 <ion-content padding id="title">
   <ion-list id="title-list">
    <ion-row>
@@ -19,8 +17,30 @@
         <h5 style="text-align: center; font-weight: normal;"> Titles </h5>
       </ion-col>
     </ion-row>
-    <ion-item *ngFor="let tle of division.titles" color="none" (tap)="openTitle(tle)" id="title-list-item19">
+    <ion-item *ngFor="let tle of division.titles;let idx=index" color="none" (tap)="openTitle(tle,idx)" id="title-list-item19">
       {{tle.name}}
     </ion-item>
   </ion-list>
 </ion-content>
+<ion-footer>
+  <ion-toolbar id="bottom-toolbar">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-1>
+          <button icon-only (tap)="movePrev()">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-10>
+          <ion-title>
+          </ion-title>
+        </ion-col>
+        <ion-col col-1>
+          <button icon-only (tap)="moveNext()">
+            <ion-icon name="ios-arrow-forward"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
