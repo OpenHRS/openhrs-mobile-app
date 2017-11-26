@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,NavParams } from 'ionic-angular';
 import { TitlePage } from '../title/title';
 import { AppServer } from '../../services/appserver';
 import { Response } from '@angular/http';
@@ -12,7 +12,7 @@ export class DivisionPage {
 
   private divisions: any[] = null;
 
-  constructor(public navCtrl: NavController,public server: AppServer) {
+  constructor(public navParams: NavParams,public navCtrl: NavController,public server: AppServer) {
     this.divisions=[];
     this.loadLocalJson();
   }
@@ -21,8 +21,8 @@ export class DivisionPage {
     this.navCtrl.pop();
   }
   
-  openDivision(div){
-    this.navCtrl.push(TitlePage,{division: div});
+  openDivision(div,idx){
+    this.navCtrl.push(TitlePage,{division: div,divisionsList: this.divisions,sectionIndex: idx});
   }
 
   addMealSuccess(res: Response){

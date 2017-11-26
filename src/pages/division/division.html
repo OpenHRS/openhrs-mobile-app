@@ -15,7 +15,7 @@
         <h5> Divisions </h5>
       </ion-col>
     </ion-row>
-    <ion-item *ngFor="let div of divisions" (tap)="openDivision(div)">
+    <ion-item *ngFor="let div of divisions;let idx=index" (tap)="openDivision(div,idx)">
       {{div.name}}
     </ion-item>
   </ion-list>
