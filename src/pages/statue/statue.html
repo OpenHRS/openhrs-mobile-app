@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      {{section.title_text}}
+      {{section.name}}
     </ion-title>
     <ion-buttons end>
       <button icon-only ion-button (click)="shareStatue()" style="float: left;">
@@ -16,8 +16,8 @@
 <ion-content padding>
   <ion-row>
     <ion-col>
-      <b> &#167;{{section.chapter}}-{{section.section}}&nbsp;{{section.section_text}} </b>
-    </ion-col>
+      <b> &#167;{{section.chapter}}-{{section.section}}&nbsp;{{section.name}} </b>
+    </ion-col>  
   </ion-row>
   <div id="statue-markdown" class="show-list-numbers-and-dots">
     <p *ngFor="let txt of section.allTexts" [innerHTML]="sanitize(txt)">
@@ -27,19 +27,25 @@
 </ion-content>
 <ion-footer>
   <ion-toolbar id="bottom-toolbar">
-    <ion-buttons left>
-      <button icon-only (tap)="movePrev()">
-        <ion-icon name="ios-arrow-back"></ion-icon>
-      </button>
-    </ion-buttons>
-    <ion-title>
-      <ion-icon name="ios-bookmark-outline" *ngIf="!section.bookmarked" (tap)="addToBookmark()"></ion-icon>
-      <ion-icon name="ios-bookmark" *ngIf="section.bookmarked" (tap)="removeFromBookmark()"></ion-icon>
-    </ion-title>
-    <ion-buttons right>
-      <button icon-only (tap)="moveNext()">
-        <ion-icon name="ios-arrow-forward"></ion-icon>
-      </button>
-    </ion-buttons>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-1>
+          <button icon-only (tap)="movePrev()">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-10>
+          <ion-title>
+            <ion-icon name="ios-bookmark-outline" *ngIf="!section.bookmarked" (tap)="addToBookmark()"></ion-icon>
+            <ion-icon name="ios-bookmark" *ngIf="section.bookmarked" (tap)="removeFromBookmark()"></ion-icon>
+          </ion-title>
+        </ion-col>
+        <ion-col col-1>
+          <button icon-only (tap)="moveNext()">
+            <ion-icon name="ios-arrow-forward"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-footer>

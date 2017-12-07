@@ -10,19 +10,32 @@ import { Response } from '@angular/http';
 })
 export class SectionPage {
 
+  private division: any = null;
   private chapter: any = null;
+  private title: any = null;
   private sections: any[] = null;
   private loadingSections: boolean = false;
   private hasSections = true;
 
   constructor(public navCtrl: NavController,private navParams: NavParams,private server: AppServer) {
+    this.division=this.navParams.get('division');
     this.chapter=this.navParams.get('chapter');
+    this.title=this.navParams.get('title');
     this.sections=[];
-    this.loadSections();
+    //this.loadSections();
+    if (this.chapter.sections){
+      for (var a=0;a<this.chapter.sections.length;a++){
+        let sec=this.chapter.sections[a];
+        sec.chapter=this.chapter.number;
+        sec.section=sec.number;
+        sec.bookmarked = this.server.isInBookmark(sec);
+        this.sections.push(sec);
+      }
+    }
   }
 
   openSection(sec,idx){
-    this.navCtrl.push(StatuePage,{section: sec,sectionsList: this.sections, sectionIndex: idx});
+    this.navCtrl.push(StatuePage,{division: this.division,chapter: this.chapter, title: this.title, section: sec,sectionsList: this.sections, sectionIndex: idx});
   }
 
   goBack(){
