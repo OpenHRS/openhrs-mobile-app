@@ -21,15 +21,9 @@ export class TitlePage {
   goBack(){
     this.navCtrl.pop();
   }
-
-openTitle(tle, idx) {
-  this.navCtrl.push(ChapterPage, {
-    division: this.division,
-    divisionsList: this.division.titles,
-    sectionIndex: idx,
-    title: tle
-  });
-}
+  openTitle(tle,idx){
+    this.navCtrl.push(ChapterPage,{division: this.division,divisionsList: this.division.titles,sectionIndex: idx,title: tle});
+  }
 
   moveNext() {
     if (this.divisionsList != null) {
