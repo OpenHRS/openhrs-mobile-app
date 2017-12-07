@@ -11,15 +11,17 @@ import 'rxjs/add/operator/catch';
 export class AppServer {
 
   //private BASE_URL="http://192.168.8.107:9100/optdin/api/";
-  private BASE_URL = "http://dev.hrs.diblii.com/api/";
+  //private BASE_URL = "http://dev.hrs.diblii.com/api/";
   //https://hrs.diblii.com/api/chapter/1/section/
+  private BASE_URL="https://raw.githubusercontent.com/OpenHRS/openhrs-data/master/hrscurrent/";
 
   // Resolve HTTP using the constructor
   constructor(private http: Http) {
   }
 
   getLocalJsonTree() {
-    let url = "assets/hrstree.txt";
+    //let url = "assets/hrstree.txt";
+    let url="https://raw.githubusercontent.com/OpenHRS/openhrs-scraper-app/master/output/hrscurrent_notext.json";
     return this.http.get(url);
   }
 
@@ -33,13 +35,21 @@ export class AppServer {
     return this.http.get(url);
   }
 
+  getStatuteNew(division,title,chapter,section){
+    let url=this.BASE_URL+"division/"+division+"/title/"+title+"/chapter/"+chapter+"/section/"+chapter+"-"+section+".json";
+    console.log(url);
+    return this.http.get(url);
+  }
+
   getSection(chapNum, secNum): any {
     let url = this.BASE_URL + "chapter/" + chapNum + "/section/" + secNum;
     return this.http.get(url);
   }
 
   getSearchQuery(query, length) {
-    let url = this.BASE_URL + "statutes/search?input=" + query + "&size=" + length;
+    //let url = this.BASE_URL + "statutes/search?input=" + query + "&size=" + length;
+    let url="http://dev.hrs.diblii.com/api/statutes/search?input=" + encodeURI(query) + "&size=" + length;
+    console.log(url);
     return this.http.get(url);
   }
 
