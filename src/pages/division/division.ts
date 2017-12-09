@@ -30,6 +30,7 @@ export class DivisionPage {
       let jsonRes=res.json();
       for (var a=0;a<jsonRes.length;a++){
         this.divisions.push(jsonRes[a]);
+        this.server.divisionsList.push(jsonRes[a]);
       }
     }catch(e){
       alert("Exception: "+e.message);
