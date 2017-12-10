@@ -11,9 +11,21 @@ import { Response } from '@angular/http';
 export class DivisionPage {
 
   private divisions: any[] = null;
+  private currentYear: string = "current";
+  private years: any[] = null;
 
   constructor(public navParams: NavParams,public navCtrl: NavController,public server: AppServer) {
     this.divisions=[];
+    this.years=[];
+    this.years.push({year: "current",yearTitle:"Current Year"});
+    for (var a=2016;a>=2002;a--){
+      this.years.push({year: ""+a,yearTitle:"Year "+a});
+    }
+
+    this.loadLocalJson();
+  }
+
+  onYearChanged(){
     this.loadLocalJson();
   }
 
@@ -28,6 +40,8 @@ export class DivisionPage {
   addMealSuccess(res: Response){
     try{
       let jsonRes=res.json();
+      this.divisions=[];
+      this.server.divisionsList=[];
       for (var a=0;a<jsonRes.length;a++){
         this.divisions.push(jsonRes[a]);
         this.server.divisionsList.push(jsonRes[a]);
@@ -43,7 +57,7 @@ export class DivisionPage {
 
   loadLocalJson(){
     let that=this;
-    this.server.getLocalJsonTree().subscribe(
+    this.server.getLocalJsonTreeByYear(this.currentYear).subscribe(
       res=>that.addMealSuccess(res),err=>that.addMealFailure(err)
     );
   }

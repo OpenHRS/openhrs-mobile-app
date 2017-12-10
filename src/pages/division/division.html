@@ -10,6 +10,11 @@
 </ion-header>
 <ion-content>
   <ion-list id="division-list">
+    <ion-item>
+      <ion-select [(ngModel)]="currentYear" (ionChange)="onYearChanged()">
+        <ion-option *ngFor="let div of years" [value]="div.year">{{div.yearTitle}}</ion-option>
+      </ion-select>
+    </ion-item>
     <ion-row>
       <ion-col>
         <h5> Divisions </h5>
