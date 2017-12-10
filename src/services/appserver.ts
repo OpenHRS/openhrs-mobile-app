@@ -16,7 +16,14 @@ export class AppServer {
   }
 
   getLocalJsonTree() {
-    let url = "https://raw.githubusercontent.com/OpenHRS/openhrs-scraper-app/master/output/hrscurrent_notext.json";
+    let url = this.BASE_URL+"hrscurrent_notext.json";
+    return this.http.get(url);
+  }
+
+  getLocalJsonTreeByYear(yr) {
+    this.BASE_URL = "https://raw.githubusercontent.com/OpenHRS/openhrs-data/master/hrs"+yr+"/";
+    let url = this.BASE_URL+"hrs"+yr+"_notext.json";
+    console.log(url);
     return this.http.get(url);
   }
 
