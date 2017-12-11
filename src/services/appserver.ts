@@ -10,7 +10,6 @@ export class AppServer {
 
   private BASE_URL = "https://raw.githubusercontent.com/OpenHRS/openhrs-data/master/hrscurrent/";
 
-  // Resolve HTTP using the constructor
   constructor(private http: Http) {
     this.divisionsList=[];
   }
@@ -23,7 +22,6 @@ export class AppServer {
   getLocalJsonTreeByYear(yr) {
     this.BASE_URL = "https://raw.githubusercontent.com/OpenHRS/openhrs-data/master/hrs"+yr+"/";
     let url = this.BASE_URL+"hrs"+yr+"_notext.json";
-    console.log(url);
     return this.http.get(url);
   }
 

@@ -27,25 +27,19 @@
 </ion-content>
 <ion-footer>
   <ion-toolbar id="bottom-toolbar">
-    <ion-grid>
-      <ion-row>
-        <ion-col col-1>
-          <button icon-only (tap)="movePrev()">
-            <ion-icon name="ios-arrow-back"></ion-icon>
-          </button>
-        </ion-col>
-        <ion-col col-10>
-          <ion-title>
-            <ion-icon name="ios-bookmark-outline" *ngIf="!section.bookmarked" (tap)="addToBookmark()"></ion-icon>
-            <ion-icon name="ios-bookmark" *ngIf="section.bookmarked" (tap)="removeFromBookmark()"></ion-icon>
-          </ion-title>
-        </ion-col>
-        <ion-col col-1>
-          <button icon-only (tap)="moveNext()">
-            <ion-icon name="ios-arrow-forward"></ion-icon>
-          </button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <ion-buttons left>
+      <button icon-only (tap)="movePrev()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      <ion-icon name="ios-bookmark-outline" *ngIf="!section.bookmarked" (tap)="addToBookmark()"></ion-icon>
+      <ion-icon name="ios-bookmark" *ngIf="section.bookmarked" (tap)="removeFromBookmark()"></ion-icon>
+    </ion-title>
+    <ion-buttons right>
+      <button icon-only (tap)="moveNext()">
+        <ion-icon name="ios-arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-footer>
