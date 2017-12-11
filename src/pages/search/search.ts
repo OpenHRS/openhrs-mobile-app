@@ -42,16 +42,8 @@ export class SearchPage {
 
   openSection(sec, id, idx) {
     var self = this;
-    (self.server).getStatute(id)
-      .map(response => response.json()).subscribe(result => {
-      self.section = result
-
-      setTimeout(function () {
-        this.section = self.section[0];
-
-        self.navCtrl.push(StatuePage, {section: this.section, sectionsList: sec, sectionIndex: idx, isFromSearch: 1});
-      }, 200);
-    });
+    self.section = sec[idx];
+    self.navCtrl.push(StatuePage, {section: this.section, sectionsList: sec, sectionIndex: idx, isFromSearch: 1});
   }
 
   sectionsSuccess(res: Response) {
@@ -63,7 +55,11 @@ export class SearchPage {
       this.jsonResLength = jsonRes.length;
       for (var a = 0; a < this.jsonResLength; a++) {
         let js=jsonRes[a];
-        js.bookmarked=this.server.isInBookmark(js);
+        js.bookmarked=this.server.isInBookmark({'section':js['_source']['sect_num'],'chapter':js['_source']['chapt_num']});
+        js.chapter=js['_source'].chapt_num;
+        js.section=js['_source'].sec_num;
+        js.name=js['_source'].sec_name;
+        js.text=js['_source'].sec_text;
         this.allSections.push(js);
         if (a < 15) {
           this.sections[a] = this.allSections[a];

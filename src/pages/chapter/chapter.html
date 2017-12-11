@@ -18,7 +18,7 @@
       </ion-col>
     </ion-row>
     <ion-item *ngFor="let chp of title.chapters;let idx=index" (tap)="openChapter(chp,idx)">
-      Chapter {{chp.number}}&nbsp;-&nbsp;{{chp.text}}
+      Chapter {{chp.number}}&nbsp;-&nbsp;{{chp.name}}
     </ion-item>
   </ion-list>
 </ion-content>

@@ -1,25 +1,27 @@
-/* * * ./app/comments/services/comment.service.ts * * */
-// Imports
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
-//import {Observable} from 'rxjs/Rx';
-//Import RxJs required methods
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class AppServer {
 
-  //private BASE_URL="http://192.168.8.107:9100/optdin/api/";
-  private BASE_URL = "http://dev.hrs.diblii.com/api/";
-  //https://hrs.diblii.com/api/chapter/1/section/
+  public divisionsList: any[] = null;
 
-  // Resolve HTTP using the constructor
+  private BASE_URL = "https://raw.githubusercontent.com/OpenHRS/openhrs-data/master/hrscurrent/";
+
   constructor(private http: Http) {
+    this.divisionsList=[];
   }
 
   getLocalJsonTree() {
-    let url = "assets/hrstree.txt";
+    let url=this.BASE_URL+"hrscurrent_notext.json";
+    return this.http.get(url);
+  }
+
+  getLocalJsonTreeByYear(yr) {
+    this.BASE_URL = "https://raw.githubusercontent.com/OpenHRS/openhrs-data/master/hrs"+yr+"/";
+    let url = this.BASE_URL+"hrs"+yr+"_notext.json";
     return this.http.get(url);
   }
 
@@ -33,13 +35,19 @@ export class AppServer {
     return this.http.get(url);
   }
 
+  getStatuteNew(division,title,chapter,section){
+    let url=this.BASE_URL+"division/"+division+"/title/"+title+"/chapter/"+chapter+"/section/"+chapter+"-"+section+".json";
+    console.log(url);
+    return this.http.get(url);
+  }
+
   getSection(chapNum, secNum): any {
     let url = this.BASE_URL + "chapter/" + chapNum + "/section/" + secNum;
     return this.http.get(url);
   }
 
   getSearchQuery(query, length) {
-    let url = this.BASE_URL + "statutes/search?input=" + query + "&size=" + length;
+    let url = "https://bn8d8e4oc9.execute-api.us-west-1.amazonaws.com/prod/search?size=10&input="+encodeURI(query);
     return this.http.get(url);
   }
 

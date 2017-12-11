@@ -10,6 +10,7 @@ export class ChapterPage {
 
   private division: any = null;
   private title: any = null;
+
   private divisionsList: any[] = null;
   private currentSecIndex: number = 0;
 
@@ -26,9 +27,7 @@ export class ChapterPage {
   }
   
   openChapter(chp,idx){
-    this.navCtrl.push(SectionPage, {
-      chapter: chp,
-    });
+    this.navCtrl.push(SectionPage,{chapter: chp,division: this.division,title: this.title});
   }
 
   moveNext() {

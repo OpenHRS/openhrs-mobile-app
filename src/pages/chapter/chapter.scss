@@ -15,10 +15,13 @@ page-chapter {
         }
     }
     ion-footer {
-        #bottom-toolbar {
-            .toolbar-background {
-                background: white;
-            }
+        button {
+          background-color: white;
         }
-    }
+      }
+    #bottom-toolbar {
+        .toolbar-background {
+          background: white;
+        }
+      }
 }

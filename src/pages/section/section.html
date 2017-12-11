@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Chapter {{chapter.number}}&nbsp;-&nbsp;{{chapter.text}}
+      Chapter {{chapter.number}}&nbsp;-&nbsp;{{chapter.name}}
     </ion-title>
     <ion-buttons end>
       <button icon-only ion-button menuToggle>
@@ -20,7 +20,7 @@
     <ion-item *ngFor="let sec of sections;let idx=index" (tap)="openSection(sec,idx)">
       <ion-row>
         <ion-col *ngIf="hasSections" col-11 class="section_text">
-          &#167;{{sec.chapter}}-{{sec.section}}&nbsp;{{sec.section_text}}
+          &#167;{{sec.chapter}}-{{sec.number}}&nbsp;<!--{{sec.section_text}}-->{{sec.name}}
         </ion-col>
         <ion-col col-1>
           <ion-icon name="ios-bookmark-outline" *ngIf="!sec.bookmarked"></ion-icon>

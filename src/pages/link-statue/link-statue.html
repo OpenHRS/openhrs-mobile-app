@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      {{section.title_text}}
+      {{section.name}}
     </ion-title>
     <ion-buttons end>
       <button style="float: left" icon-only ion-button (click)="shareStatue()">
@@ -15,7 +15,7 @@
 </ion-header>
 <ion-content>
   <h5>
-    &#167;{{section.chapter}}-{{section.section}}&nbsp;{{section.section_text}}
+    &#167;{{chapterNumber}}-{{sectionNumber}}&nbsp;{{section.name}}
   </h5>
   <div id="statue-markdown" class="show-list-numbers-and-dots">
     <p *ngFor="let txt of section.allTexts" [innerHTML]="sanitize(txt)">
