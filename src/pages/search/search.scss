@@ -1,12 +1,14 @@
 page-search {
+	ion-col.section_text {
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
 	ion-searchbar {
-
 		.searchbar-input {
 			border-bottom: thin solid color($colors-md, primary);
 		}
-
 		.searchbar-search-icon {
-			margin-left: -3%;	
+			margin-left: -3%;
 		}
 	}
 }
