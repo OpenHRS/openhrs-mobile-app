@@ -45,7 +45,7 @@ export class StatuePage {
 
     this.bookmarked = this.server.isInBookmark(this.section);
     if (this.isFromSearch) {
-      this.loadSection(this.section._id);
+      this.createHyperlinksOfSection();
     } else {
       this.loadNewSection();
     }
@@ -132,7 +132,8 @@ export class StatuePage {
       if (this.currentSecIndex < (this.sectionsList.length - 1)) {
         this.currentSecIndex++;
         if (this.isFromSearch) {
-          this.loadSection(this.sectionsList[this.currentSecIndex]._id);
+          this.section = this.sectionsList[this.currentSecIndex];
+          this.createHyperlinksOfSection();
         } else {
           this.section = this.sectionsList[this.currentSecIndex];
           this.loadNewSection();
@@ -146,7 +147,8 @@ export class StatuePage {
       if (this.currentSecIndex > 0) {
         this.currentSecIndex--;
         if (this.isFromSearch) {
-          this.loadSection(this.sectionsList[this.currentSecIndex]._id);
+          this.section = this.sectionsList[this.currentSecIndex];
+          this.createHyperlinksOfSection();
         } else {
           this.section = this.sectionsList[this.currentSecIndex];
           this.loadNewSection();

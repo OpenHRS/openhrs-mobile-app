@@ -16,7 +16,7 @@ export class AppServer {
   }
 
   getLocalJsonTree() {
-    let url = this.BASE_URL+"hrscurrent_notext.json";
+    let url=this.BASE_URL+"hrscurrent_notext.json";
     return this.http.get(url);
   }
 
@@ -49,8 +49,7 @@ export class AppServer {
   }
 
   getSearchQuery(query, length) {
-    let url="http://dev.hrs.diblii.com/api/statutes/search?input=" + encodeURI(query) + "&size=" + length;
-    console.log(url);
+    let url = "https://bn8d8e4oc9.execute-api.us-west-1.amazonaws.com/prod/search?size=10&input="+encodeURI(query);
     return this.http.get(url);
   }
 
