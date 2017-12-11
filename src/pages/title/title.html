@@ -26,23 +26,15 @@
 </ion-content>
 <ion-footer>
   <ion-toolbar id="bottom-toolbar">
-    <ion-grid>
-      <ion-row>
-        <ion-col col-1>
-          <button icon-only (tap)="movePrev()">
-            <ion-icon name="ios-arrow-back"></ion-icon>
-          </button>
-        </ion-col>
-        <ion-col col-10>
-          <ion-title>
-          </ion-title>
-        </ion-col>
-        <ion-col col-1>
-          <button icon-only (tap)="moveNext()">
-            <ion-icon name="ios-arrow-forward"></ion-icon>
-          </button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <ion-buttons>
+      <button icon-only (tap)="movePrev()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button icon-only (tap)="moveNext()">
+        <ion-icon name="ios-arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-footer>
