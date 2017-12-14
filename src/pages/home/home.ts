@@ -6,10 +6,8 @@ import {SectionPage} from '../section/section';
 import {StatuePage} from '../statue/statue';
 import {LocationPage} from '../location/location';
 import {SearchPage} from '../search/search';
-import { Geolocation } from '@ionic-native/geolocation'
 import {Camera, CameraOptions} from '@ionic-native/camera';
 import {cloudVisionService} from '../../services/cloudVisionService'
-import {locationService} from '../../services/locationService'
 import {AppServer} from '../../services/appserver'
 
 import {
@@ -21,7 +19,7 @@ import {
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers: [[Camera], [Geolocation]]
+  providers: [[Camera]]
 })
 
 export class HomePage {
@@ -34,9 +32,7 @@ export class HomePage {
               public alertCtrl: AlertController,
               private camera: Camera,
               private vision: cloudVisionService,
-              private location: locationService,
-              private server: AppServer,
-              private geolocation: Geolocation) {
+              private server: AppServer) {
   }
 
   ionViewDidLoad() {
@@ -147,20 +143,6 @@ export class HomePage {
         section = result;
 
         if (section[0] != undefined) {
-
-          // Post the location of this found section to the REST API
-          // for use with Near You functionality
-          this.geolocation.getCurrentPosition({enableHighAccuracy: true}).then((resp) => {
-            let lat = resp.coords.latitude,
-                long = resp.coords.longitude,
-                statute = section[0];
-
-            this.location.postLocation(lat, long, statute).subscribe();
-
-          }).catch((error) =>{
-            console.log('error getting location', error);
-          });
-
           // Open the found section
           this.navCtrl.push(StatuePage, {section: section[0]});
         } else {
