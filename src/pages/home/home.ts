@@ -4,10 +4,12 @@ import {TitlePage} from '../title/title';
 import {ChapterPage} from '../chapter/chapter';
 import {SectionPage} from '../section/section';
 import {StatuePage} from '../statue/statue';
+import {LinkStatuePage} from '../link-statue/link-statue';
 import {SearchPage} from '../search/search';
 import {Camera, CameraOptions} from '@ionic-native/camera';
 import {cloudVisionService} from '../../services/cloudVisionService'
 import {AppServer} from '../../services/appserver'
+import { Response } from '@angular/http';
 
 import {
   NavController, 
@@ -36,6 +38,30 @@ export class HomePage {
 
   ionViewDidLoad() {
     setTimeout(() => this.splash = false, 3000);
+    this.loadLocalJson();
+  }
+
+  addMealSuccess(res: Response){
+    try{
+      let jsonRes=res.json();
+      this.server.divisionsList=[];
+      for (var a=0;a<jsonRes.length;a++){
+        this.server.divisionsList.push(jsonRes[a]);
+      }
+    }catch(e){
+      alert("Exception: "+e.message);
+    }
+  }
+
+  addMealFailure(error: any){
+    alert('Error: '+JSON.stringify(error));
+  }
+
+  loadLocalJson(){
+    let that=this;
+    this.server.getLocalJsonTreeByYear("current").subscribe(
+      res=>that.addMealSuccess(res),err=>that.addMealFailure(err)
+    );
   }
 
   goToDivision(params) {
@@ -132,21 +158,7 @@ export class HomePage {
     if (matchedText != null) {
       let chapterSection = matchedText[0].split('-');
 
-      this.server.getSection(chapterSection[0], chapterSection[1])
-        .map(response => response.json()).subscribe(result => {
-        section = result;
-
-        if (section[0] != undefined) {
-          // Open the found section
-          this.navCtrl.push(StatuePage, {section: section[0]});
-        } else {
-          // Statute does not exist on the server
-          alert.present()
-        }
-      }, err => {
-        // Error retrieving from the REST API
-        alert.present()
-      });
+      this.navCtrl.push(LinkStatuePage,{chapter:chapterSection[0],section:chapterSection[1]});
     } else {
       // No statute was found in the text
       alert.present()

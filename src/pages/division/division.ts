@@ -22,7 +22,9 @@ export class DivisionPage {
       this.years.push({year: ""+a,yearTitle:"Year "+a});
     }
 
-    this.loadLocalJson();
+    for (a=0;a<this.server.divisionsList.length;a++){
+      this.divisions.push(this.server.divisionsList[a]);
+    }
   }
 
   onYearChanged(){
