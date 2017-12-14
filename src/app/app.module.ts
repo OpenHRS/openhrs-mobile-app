@@ -13,11 +13,9 @@ import { ChapterPage } from '../pages/chapter/chapter';
 import { SectionPage } from '../pages/section/section';
 import { StatuePage } from '../pages/statue/statue';
 import { LinkStatuePage } from '../pages/link-statue/link-statue';
-import { LocationPage } from '../pages/location/location';
 
 import { AppServer } from '../services/appserver';
 import { cloudVisionService} from '../services/cloudVisionService'
-import { locationService } from '../services/locationService'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { WebIntent } from '@ionic-native/web-intent';
@@ -39,7 +37,6 @@ import { HttpModule } from '@angular/http';
     SectionPage,
     StatuePage,
     LinkStatuePage,
-    LocationPage
   ],
   imports: [
     BrowserModule,
@@ -60,12 +57,10 @@ import { HttpModule } from '@angular/http';
     SectionPage,
     StatuePage,
     LinkStatuePage,
-    LocationPage
   ],
   providers: [
     AppServer,
     cloudVisionService,
-    locationService,
     WebIntent,
     StatusBar,
     SplashScreen,

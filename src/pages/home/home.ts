@@ -4,7 +4,6 @@ import {TitlePage} from '../title/title';
 import {ChapterPage} from '../chapter/chapter';
 import {SectionPage} from '../section/section';
 import {StatuePage} from '../statue/statue';
-import {LocationPage} from '../location/location';
 import {SearchPage} from '../search/search';
 import {Camera, CameraOptions} from '@ionic-native/camera';
 import {cloudVisionService} from '../../services/cloudVisionService'
@@ -70,11 +69,6 @@ export class HomePage {
       query: this.searchQuery
     });
     this.searchQuery = "";
-  }
-
-  goToLocation(params) {
-    if (!params) params = {};
-    this.navCtrl.push(LocationPage);
   }
 
   goToCamera(): void {
